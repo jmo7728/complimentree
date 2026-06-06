@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0B0F0E;
+  --surface: #141B19;
+  --surface-2: #1C2421;
+  --border: #2A332F;
+  --text: #E8EDE9;
+  --text-dim: #8A968F;
+  --cool: #22D3C5;
+  --warm: #F2A93B;
+  --hot: #FF5C3C;
+  --canopy: #5BD980;
+  --canopy-deep: #2E9E5B;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(255, 92, 60, 0.10) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cpath d='M0 50 Q100 30 200 50 Q300 70 400 50' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 150 Q100 130 200 150 Q300 170 400 150' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 250 Q100 230 200 250 Q300 270 400 250' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 350 Q100 330 200 350 Q300 370 400 350' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M50 0 Q30 100 50 200 Q70 300 50 400' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M150 0 Q130 100 150 200 Q170 300 150 400' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M250 0 Q230 100 250 200 Q270 300 250 400' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M350 0 Q330 100 350 200 Q370 300 350 400' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, 400px 400px;
+}
+
+/* Topo texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cellipse cx='300' cy='300' rx='280' ry='200' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cellipse cx='300' cy='300' rx='220' ry='150' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cellipse cx='300' cy='300' rx='160' ry='100' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cellipse cx='300' cy='300' rx='100' ry='60' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cellipse cx='150' cy='150' rx='120' ry='90' stroke='%23ffffff' stroke-width='0.4' fill='none'/%3E%3Cellipse cx='450' cy='450' rx='120' ry='90' stroke='%23ffffff' stroke-width='0.4' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#__next {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Range input custom styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--text);
+}
+
+input[type="range"].equity-slider {
+  height: 5px;
+  background: linear-gradient(to right, var(--canopy-deep), var(--canopy));
+}
+
+input[type="range"].equity-slider::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--canopy);
+  box-shadow: 0 0 8px rgba(91, 217, 128, 0.6);
+}
+
+/* Chip styles */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.chip-plantable {
+  background: rgba(91, 217, 128, 0.12);
+  border-color: rgba(91, 217, 128, 0.3);
+  color: var(--canopy);
+}
+
+.chip-needs-space {
+  background: rgba(242, 169, 59, 0.12);
+  border-color: rgba(242, 169, 59, 0.3);
+  color: var(--warm);
+}
+
+/* Animations */
+@keyframes pulse-thermal {
+  0% { background-color: rgba(255, 92, 60, 0.3); }
+  100% { background-color: transparent; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 14, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Select inputs */
+select {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+select:focus {
+  border-color: var(--canopy);
+}
+
+option {
+  background: var(--surface-2);
+}
+
+/* Textarea */
+textarea {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 10px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+
+textarea:focus {
+  border-color: var(--canopy);
+}
+
+textarea::placeholder {
+  color: var(--text-dim);
+}
+
+/* Button base */
+button {
+  cursor: pointer;
+  font-family: 'Hanken Grotesk', sans-serif;
+  border: none;
+  outline: none;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: #0B0F0E !important;
+  font-family: 'Hanken Grotesk', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--surface) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-dim) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(11, 15, 14, 0.7) !important;
+  color: var(--text-dim) !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--text-dim) !important;
+}
